@@ -111,7 +111,7 @@
   },
   "dependencies": {
     "@jacobbubu/pull-pushable": "^1.2.0",
-    "@jacobbubu/pull-reader": "file:../pull-reader/jacobbubu-pull-reader-0.0.0-development.tgz",
+    "@jacobbubu/pull-reader": "^1.0.1",
     "varint": "^5.0.0"
   }
 }
