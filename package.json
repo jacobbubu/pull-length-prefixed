@@ -73,9 +73,9 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@jacobbubu/pull-stream-types": "^1.1.0",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.0",
+    "@types/pull-stream": "^3.6.2",
     "@types/rc": "^1.1.0",
     "@types/shelljs": "^0.8.7",
     "@types/varint": "^5.0.0",
