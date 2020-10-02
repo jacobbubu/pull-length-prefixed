@@ -74,12 +74,12 @@ function _isNoMoreDataError(err: pull.EndOrError) {
 }
 
 function readFixedMessage(reader: ReaderType, maxLength: number, cb: DecodeCb) {
-  reader.read(4, (err, bytes: Buffer) => {
+  reader.read(4, (err, bytes) => {
     if (err) {
       return cb(_isNoMoreDataError(err) ? true : err)
     }
 
-    const msgSize = bytes.readInt32BE(0) // reads exactly 4 bytes
+    const msgSize = bytes!.readInt32BE(0) // reads exactly 4 bytes
     if (msgSize > maxLength) {
       return cb(new Error('size longer than max permitted length of ' + maxLength + '!'))
     }
@@ -94,12 +94,12 @@ function readVarintMessage(reader: ReaderType, maxLength: number, cb: DecodeCb) 
 
   // Read the varint
   function readByte() {
-    reader.read(1, (err, byte: Buffer) => {
+    reader.read(1, (err, byte) => {
       if (err) {
         return cb(_isNoMoreDataError(err) ? true : err)
       }
 
-      rawMsgSize.push(byte)
+      rawMsgSize.push(byte!)
 
       if (byte && !isEndByte(byte[0])) {
         readByte()
